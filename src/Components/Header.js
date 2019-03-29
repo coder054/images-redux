@@ -1,10 +1,24 @@
 import React from 'react';
 import {Link} from 'react-router-dom'
+import { connect } from 'react-redux'
+import {login, isLoggedIn, logout} from './../modules/auth'
 
-export default class Header extends React.Component {
+
+
+class Header extends React.Component {
 
 	constructor(props) {
 		super(props);
+		console.log(this.props)
+	}
+
+	logout = ()=>{
+		this.props.logout()
+	}
+
+	logIn = ()=>{
+		console.log('logIn')
+		this.props.login()
 	}
 
 	render() {
@@ -14,8 +28,24 @@ export default class Header extends React.Component {
 				<Link to="/"> Galleries </Link>
 				<Link to="/upload"> Upload </Link>
 				<Link to="/about"> Ablout </Link>
-				<Link to="/logout"> Logout </Link>
+				
+				{ this.props.isLoggedIn ? <a onClick={this.logout}> Logout </a> : null }
+
+				{ !this.props.isLoggedIn ? <a onClick={this.logIn}> Login </a> : null }
+
 			</div>
 		);
 	}
 }
+
+const mapStateToProps = (state) => ({
+	auth: state.auth,
+	isLoggedIn: isLoggedIn(state)
+  })
+  
+  const mapDispatchToProps = {
+	login,
+	logout
+  }
+  
+  export default connect(mapStateToProps, mapDispatchToProps)(Header)

@@ -1,10 +1,13 @@
 import React from 'react';
 
-export default class Home extends React.Component {
+import { connect } from 'react-redux'
+
+class Home extends React.Component {
 
 
 	constructor(props) {
 		super(props);
+
 	}
 
 	render() {
@@ -13,3 +16,17 @@ export default class Home extends React.Component {
 		);
 	}
 }
+
+
+
+
+
+const mapStateToProps = (state) => ({
+  auth: state.auth
+})
+
+const mapDispatchToProps = {
+  
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Home)

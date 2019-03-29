@@ -5,6 +5,7 @@ import About from './../../Components/About.js'
 import Logout from './../../Components/Logout.js'
 import Header from './../../Components/Header.js'
 import Home from './../../Components/Home.js'
+import AuthHandler from './../../Components/AuthHandler'
 
 const App = () => (
   <div>
@@ -15,6 +16,7 @@ const App = () => (
       <Route exact path="/about" component={About} />
       <Route exact path="/upload" component={Upload} />
       <Route exact path="/logout" component={Logout} />
+      <Route exact path="/oauth2/callback" component={AuthHandler} />
       <Route exact path="/" component={Home} />      
       
 
