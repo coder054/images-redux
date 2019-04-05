@@ -1,51 +1,63 @@
-import React from 'react';
-import {Link} from 'react-router-dom'
+import React from 'react'
+import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
-import {login, isLoggedIn, logout} from './../modules/auth'
-
-
+import { login, isLoggedIn, logout } from './../modules/auth'
 
 class Header extends React.Component {
-
 	constructor(props) {
-		super(props);
+		super(props)
 		console.log(this.props)
 	}
 
-	logout = ()=>{
+	logout = () => {
 		this.props.logout()
 	}
 
-	logIn = ()=>{
-		console.log('logIn')
+	logIn = () => {
 		this.props.login()
 	}
 
 	render() {
 		return (
 			<div className="Header-wr">
-				<Link to="/" className="brand"> Image Storage </Link>
+				<Link to="/" className="brand">
+					{' '}
+					Image Storage{' '}
+				</Link>
 				<Link to="/"> Galleries </Link>
 				<Link to="/upload"> Upload </Link>
-				<Link to="/about"> Ablout </Link>
-				
-				{ this.props.isLoggedIn ? <a onClick={this.logout}> Logout </a> : null }
+				<Link to="/about"> About </Link>
+				<Link to="/public"> Public </Link>
 
-				{ !this.props.isLoggedIn ? <a onClick={this.logIn}> Login </a> : null }
+				{this.props.isLoggedIn ? (
+					<button className="logout-btn" onClick={this.logout}>
+						{' '}
+						Logout{' '}
+					</button>
+				) : null}
 
+				{!this.props.isLoggedIn ? (
+					<button className="login-btn" onClick={this.logIn}>
+						{' '}
+						Login{' '}
+					</button>
+				) : null}
 			</div>
-		);
+		)
 	}
 }
 
-const mapStateToProps = (state) => ({
+const mapStateToProps = state => ({
 	auth: state.auth,
 	isLoggedIn: isLoggedIn(state)
-  })
-  
-  const mapDispatchToProps = {
+})
+
+const mapDispatchToProps = {
 	login,
 	logout
-  }
-  
-  export default connect(mapStateToProps, mapDispatchToProps)(Header)
+}
+
+export default connect(
+	mapStateToProps,
+	mapDispatchToProps
+)(Header)

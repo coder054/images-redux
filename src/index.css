@@ -15,25 +15,358 @@ button:disabled {
   opacity: 0.5;
 }
 
-
 .Header-wr {
-	margin-bottom: 40px;
-	border-bottom: 1px solid #ddd;
-	padding: 20px;
-	display: flex;
-
+  margin-bottom: 20px;
+  border-bottom: 1px solid #ddd;
+  padding: 20px;
+  display: flex;
 }
 
 .Header-wr a {
-	margin-right: 30px
+  margin-right: 30px;
+  line-height: 30px;
 }
-
-
 
 .Header-wr li {
-	flex-grow: 1
+  flex-grow: 1;
 }
 
-li.brand{
-	flex-grow: 5;
+li.brand {
+  flex-grow: 5;
+}
+
+.upload-wr {
+  height: 166px;
+  border: 2px dashed #999;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.upload-wr:hover {
+  background-color: #eee;
+}
+
+.spinner-wr {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/*Images */
+.Images-wrapper {
+  column-gap: 15px;
+}
+
+.Images-wrapper > div {
+  margin-bottom: 15px;
+  position: relative;
+}
+
+.one-img-wr img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border: 5px solid #ddd;
+  /*position: absolute;*/
+  /*z-index: 1;*/
+  position: relative;
+  border-radius: 5px;
+}
+
+.one-img-wr:after {
+  position: absolute;
+  content: '';
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  background: rgba(0, 0, 0, 0);
+  transition: all 0.5s linear;
+  pointer-events: none;
+  /*border: 4px solid red;*/
+}
+
+.one-img-wr:hover:after {
+  background: rgba(0, 0, 0, 0.3);
+
+  pointer-events: none;
+  /*border: 4px solid red;*/
+}
+
+.btn-delete {
+  border: 1px solid #777;
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  z-index: 2 !important;
+  /*  width: 80px;
+  height: 50px;*/
+  background-color: rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+  border-radius: 5px;
+  opacity: 0;
+}
+
+.one-img-wr:hover button.btn-delete {
+  opacity: 1;
+}
+
+button.btn-delete i {
+  color: blue;
+  font-size: 20px;
+}
+
+/* end Images */
+
+/*modal view image*/
+.ui.modal {
+  transition: all 2s ease !important;
+}
+
+.modal-header {
+  background: black;
+  padding: 15px;
+  display: flex;
+  justify-content: space-between;
+}
+
+span.label {
+  color: white;
+}
+
+span.info {
+  color: aqua;
+}
+
+.left p {
+  margin-bottom: 6px;
+}
+.modal-footer {
+  background: black;
+  padding: 12px;
+  color: white;
+}
+
+.modal-footer {
+  display: flex;
+  justify-content: space-between;
+}
+span.edittitledesc {
+  cursor: pointer;
+}
+/* end modal view image*/
+
+/*formik*/
+
+.modal-edit-title-desc input,
+textarea {
+  padding: 0.5rem;
+  font-size: 16px;
+  width: 100%;
+  display: block;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+
+input:focus {
+  border-color: #007eff;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075),
+    0 0 0 3px rgba(0, 126, 255, 0.1);
+  outline: none;
+}
+
+input.error {
+  border-color: red;
+}
+
+label {
+  font-weight: bold;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.input-feedback {
+  color: red;
+  margin-top: 0.25rem;
+}
+
+.modal-edit-title-desc button {
+  max-width: 150px;
+  margin: 20px 0;
+  padding: 12px 20px;
+  border-style: none;
+  border-radius: 5px;
+  background-color: #08c;
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.15);
+  font-size: 17px;
+  font-weight: 500;
+  color: #fff;
+  cursor: pointer;
+  outline: none;
+  -webkit-appearance: none;
+}
+
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed !important;
+}
+
+button + button {
+  margin-left: 0.5rem;
+}
+
+button.outline {
+  background-color: #eee;
+  border: 1px solid #aaa;
+  color: #555;
+}
+/*end formik*/
+
+/*.next-button,
+.prev-button {
+  position: absolute;
+  cursor: pointer;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 30px;
+}*/
+
+.next-button {
+  right: 0;
+}
+
+.prev-button {
+  left: 0;
+}
+.modal-content {
+  position: relative;
+}
+
+.modal-content i {
+  position: absolute;
+  top: 50%;
+}
+
+.modal-content i.fa-chevron-left {
+  left: 0px;
+}
+.modal-content i.fa-chevron-right {
+  right: 0px;
+}
+.modal-content img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.fa-chevron-right,
+.fa-chevron-left {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  cursor: pointer;
+  font-size: 19px;
+  padding: 5px;
+}
+
+.modal-content img {
+  max-height: 450px;
+}
+
+.modal-header-formik {
+  background: black;
+  padding: 15px;
+  color: wheat;
+  text-transform: uppercase;
+}
+
+.modal-edit-wr {
+  max-width: 400px;
+}
+
+/**/
+select {
+  -webkit-appearance: button;
+  -webkit-border-radius: 2px;
+  -webkit-box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
+  -webkit-padding-end: 20px;
+  -webkit-padding-start: 2px;
+  -webkit-user-select: none;
+  background-image: url(http://i62.tinypic.com/15xvbd5.png),
+    -webkit-linear-gradient(#fafafa, #f4f4f4 40%, #e5e5e5);
+  background-image: url(http://i62.tinypic.com/15xvbd5.png),
+    -o-linear-gradient(#fafafa, #f4f4f4 40%, #e5e5e5);
+  background-image: url(http://i62.tinypic.com/15xvbd5.png),
+    linear-gradient(#fafafa, #f4f4f4 40%, #e5e5e5);
+  background-position: 97% center;
+  background-repeat: no-repeat;
+  border: 1px solid #aaa;
+  color: #555;
+  font-size: inherit;
+
+  overflow: hidden;
+  padding: 5px 10px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 300px;
+}
+
+select {
+  color: #fff;
+  background-image: url(http://i62.tinypic.com/15xvbd5.png),
+    -webkit-linear-gradient(#779126, #779126 40%, #779126);
+  background-color: #779126;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  border-radius: 20px;
+  margin-bottom: 20px;
+}
+
+/**/
+
+span.edittitledesc {
+  display: block !important;
+  color: blue;
+}
+
+.letupload,
+.needloginfirst {
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.login {
+  margin: 5px;
+  color: #006699;
+  cursor: pointer;
+}
+
+.container {
+  padding: 15px;
+}
+
+.login-btn,
+.logout-btn {
+  cursor: pointer;
+  background: #006699;
+  color: white;
+  font-weight: bold;
+  text-transform: uppercase;
+  padding: 5px 12px;
+  border-radius: 5px;
+  border: none;
+}
+
+div.uploading * {
+  color: rgba(0, 0, 0, 0);
+  pointer-events: none;
+}
+
+.uploading input {
+  visibility: hidden;
 }

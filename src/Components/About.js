@@ -1,15 +1,14 @@
-import React from 'react';
+import React from 'react'
+import requireAuth from './../HOCs/requireAuth'
 
-export default class About extends React.Component {
-
-
+class About extends React.Component {
 	constructor(props) {
-		super(props);
+		super(props)
 	}
 
 	render() {
-		return (
-			<div> About </div>
-		);
+		return <div> About </div>
 	}
 }
+
+export default requireAuth(About)
