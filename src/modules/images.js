@@ -135,7 +135,16 @@ export const deleteImage = deleteHash => {
 
     if (window.confirm('Are you sure you want to delete this image?')) {
       await api.deleteImage(deleteHash, token)
-      dispatch(fetchImages()) // xxx dispatch a thunk from an action
+
+      let newImagesList = getState().images.images.filter(
+        image => image.deletehash !== deleteHash
+      )
+
+      dispatch({
+        type: 'SET_REDUX_STATE',
+        propertyName: 'images',
+        value: newImagesList
+      }) // xxx dispatch a thunk from an action
       notify('Delete image Sucefully!')
     } else {
     }

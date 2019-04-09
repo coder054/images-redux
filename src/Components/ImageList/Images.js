@@ -5,6 +5,7 @@ import { fetchImages, deleteImage, clickImage } from './../../modules/images.js'
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import Overdrive from 'react-overdrive'
+import Img from 'react-image'
 class Images extends Component {
 	async componentDidMount() {
 		await this.props.fetchImages()
@@ -29,10 +30,11 @@ class Images extends Component {
 				{this.props.images.images.map((image, index) => (
 					<div className="one-img-wr" key={image.id}>
 						<Overdrive id={`image-${image.id}`}>
-							<img
+							<Img
 								onClick={this.props.clickImage.bind(null, index)}
 								src={image.link}
 								alt={image.title}
+								loader={<div> Loading... </div>}
 							/>
 						</Overdrive>
 						<button
