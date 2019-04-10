@@ -17,7 +17,7 @@ const App = () => (
     <ToastContainer />
 
     <main className="container">
-      <Route exact path="/about" component={About} />
+      <Route path="/about" component={About} />
       <Route exact path="/upload" component={requireAuth(Upload)} />
       <Route exact path="/logout" component={Logout} />
       <Route exact path="/oauth2/callback" component={AuthHandler} />

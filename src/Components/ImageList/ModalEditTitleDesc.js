@@ -67,7 +67,7 @@ class ModalEditTitleAndDesc extends Component {
 									handleReset
 								} = props
 								return (
-									<form onSubmit={handleSubmit}>
+									<form className="formik-wr" onSubmit={handleSubmit}>
 										<label htmlFor="myTitle" style={{ display: 'block' }}>
 											Title
 										</label>

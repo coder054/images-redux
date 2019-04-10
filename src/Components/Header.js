@@ -20,28 +20,32 @@ class Header extends React.Component {
 	render() {
 		return (
 			<div className="Header-wr">
-				<Link to="/" className="brand">
-					{' '}
-					Image Storage{' '}
-				</Link>
-				<Link to="/"> Galleries </Link>
-				<Link to="/upload"> Upload </Link>
-				<Link to="/about"> About </Link>
-				<Link to="/public"> Public </Link>
-
-				{this.props.isLoggedIn ? (
-					<button className="logout-btn" onClick={this.logout}>
+				<div className="left">
+					<Link to="/" className="brand">
 						{' '}
-						Logout{' '}
-					</button>
-				) : null}
+						Image Storage{' '}
+					</Link>
+					<Link to="/"> Galleries </Link>
+					<Link to="/upload"> Upload </Link>
+					<Link to="/about"> About </Link>
+					<Link to="/public"> Public </Link>
+				</div>
 
-				{!this.props.isLoggedIn ? (
-					<button className="login-btn" onClick={this.logIn}>
-						{' '}
-						Login{' '}
-					</button>
-				) : null}
+				<div className="right">
+					{this.props.isLoggedIn ? (
+						<button className="logout-btn" onClick={this.logout}>
+							{' '}
+							Logout{' '}
+						</button>
+					) : null}
+
+					{!this.props.isLoggedIn ? (
+						<button className="login-btn" onClick={this.logIn}>
+							{' '}
+							Login{' '}
+						</button>
+					) : null}
+				</div>
 			</div>
 		)
 	}
