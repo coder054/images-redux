@@ -8,15 +8,15 @@ self.__precacheManifest = [
     "url": "/images-redux/static/js/runtime~main.38c9cac1.js"
   },
   {
-    "revision": "db6e2595b274fe796a7f",
-    "url": "/images-redux/static/js/main.39b95525.chunk.js"
+    "revision": "d536988f3de1b299dbe2",
+    "url": "/images-redux/static/js/main.18fba32b.chunk.js"
   },
   {
     "revision": "935e379c8f7d9ac48437",
     "url": "/images-redux/static/js/2.738baeae.chunk.js"
   },
   {
-    "revision": "db6e2595b274fe796a7f",
+    "revision": "d536988f3de1b299dbe2",
     "url": "/images-redux/static/css/main.89d9e276.chunk.css"
   },
   {
@@ -24,7 +24,7 @@ self.__precacheManifest = [
     "url": "/images-redux/static/css/2.cafe327d.chunk.css"
   },
   {
-    "revision": "aa7e6141c8379d8c33008ab473a9205d",
+    "revision": "fcb924f0a06b92f6e7ba3d2efeb3775f",
     "url": "/images-redux/index.html"
   }
 ];
